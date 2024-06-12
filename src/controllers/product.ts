@@ -151,16 +151,15 @@ export const updateProduct = TryCatch(async (req, res, next) => {
 
 export const deleteProduct = TryCatch(async (req, res, next) => {
   const product = await Product.findById(req.params.id);
-
   if (!product) return next(new ErrorHandler("Product Not Found", 404));
 
   rm(product.photo!, () => {
     console.log("Product Photo Deleted");
   });
 
-  await Product.deleteOne();
+  await product.deleteOne();
 
-  await invalidateCache({
+  invalidateCache({
     product: true,
     productId: String(product._id),
     admin: true,

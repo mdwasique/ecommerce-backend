@@ -5,6 +5,7 @@ import NodeCache from "node-cache";
 import { config } from "dotenv";
 import morgan from "morgan";
 import Stripe from "stripe";
+import cors from "cors";
 
 //importing routes
 import productRoute from "./routes/product.js";
@@ -31,6 +32,7 @@ const app = express();
 
 app.use(express.json()); // Parse incoming requests data as JSON
 app.use(morgan("dev"));
+app.use(cors());
 
 app.get("/", (req, res) => {
   res.send("Hello wasique!");
