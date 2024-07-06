@@ -65,14 +65,3 @@ export type shippingInfoType = {
   country: string;
   state: string;
 };
-
-export interface NewOrderRequestBody {
-  shippingInfo: shippingInfoType;
-  user: string;
-  subTotal: number;
-  tax: number;
-  shippingCharges: number;
-  discount: number;
-  total: number;
-  orderItems: OrderItemType[];
-}
