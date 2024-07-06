@@ -58,10 +58,21 @@ export type OrderItemType = {
   quantity: number;
   productId: number;
 };
-export type shippingInfoType = {
+export type ShippingInfoType = {
   address: string;
   pinCode: number;
   city: string;
   country: string;
   state: string;
 };
+
+export interface NewOrderRequestBody {
+  shippingInfo: ShippingInfoType;
+  user: string;
+  subtotal: number;
+  tax: number;
+  shippingCharges: number;
+  discount: number;
+  total: number;
+  orderItems: OrderItemType[];
+}
