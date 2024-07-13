@@ -19,7 +19,7 @@ config({
 });
 
 const port = process.env.PORT || 4000;
-const mongoURI = "mongodb+srv://ecommerce:google@123@cluster0.67sevos.mongodb.net/";
+const mongoURI = process.env.MONGO_URI || "";
 const stripeKey = process.env.STRIPE_KEY || "";
 
 connectDb(mongoURI);
